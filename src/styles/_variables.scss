@@ -1,0 +1,16 @@
+$system-font: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$primary-font: "Noto Sans", sans-serif;
+$font-color: #131316;
+$main-color: #ffffff;
+$border: 1px solid #a0a0a1;
+
+@mixin button($type) {
+  border: $border;
+  border-radius: 32px;
+  @if ($type == "primary") {
+    background: $font-color;
+  } @else {
+    background: $main-color;
+  }
+}

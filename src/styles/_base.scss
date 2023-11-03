@@ -1,0 +1,139 @@
+@import "variables";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  font-family: $primary-font, $system-font;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(14px, 1vw, 18px);
+  background: $main-color;
+}
+
+p {
+  margin: 0;
+  font-size: 1em;
+  color: $font-color;
+}
+
+h1 {
+  margin: 0;
+  font-size: 5.5em;
+  font-weight: 600;
+  color: $font-color;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: $font-color;
+}
+
+li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+dialog {
+  position: relative;
+}
+
+button {
+  display: flex;
+  font-size: 1em;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: 4px;
+}
+
+li {
+  display: flex;
+  font-size: 1em;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+}
+
+span {
+  opacity: 0.4;
+}
+
+@media (width <= 1000px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  header {
+    width: 90vw;
+    nav {
+      display: none;
+    }
+    .menu {
+      margin-left: 0;
+    }
+  }
+  section.hero {
+    width: 90vw;
+    grid-template-columns: repeat(1, 1fr);
+    .hero-banner {
+      .hero-buttons {
+        flex-direction: column;
+        > button {
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+    .hero-carousel {
+      align-items: center;
+      justify-content: center;
+      > div {
+        width: 100%;
+      }
+    }
+    .hero-footer {
+      grid-column: 1;
+      div:nth-child(1),
+      div:nth-child(2),
+      div:nth-child(3),
+      div:nth-child(4) {
+        display: none;
+      }
+      div:nth-child(5) {
+        padding: 22px;
+        border: none;
+      }
+    }
+  }
+  section.our-customers {
+    flex-direction: column;
+    align-items: center;
+    .left-side {
+      width: 90vw;
+      padding-bottom: 22px;
+      .stats {
+        p {
+          padding-bottom: 8px;
+        }
+      }
+    }
+    .right-side {
+      width: 90vw;
+      flex: 0;
+    }
+  }
+}
