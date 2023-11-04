@@ -6,8 +6,10 @@ export default class ui {
     ui.navBar();
     ui.menuBar();
     ui.carousel();
+    animate.background();
     animate.heroCarousel();
     animate.heroBanner();
+    animate.logoCarousel();
   }
 
   static navBar() {
@@ -21,7 +23,6 @@ export default class ui {
         e.currentTarget.classList.add("active");
       });
     });
-    animate.navBar();
   }
 
   static menuBar() {
@@ -39,16 +40,32 @@ export default class ui {
 
   static carousel() {
     const cards = document.querySelectorAll("[carousel-item]");
-    let count = 1;
-    setInterval(() => {
+    const leftButtons = document.querySelectorAll(
+      ".action-buttons>button:nth-last-child(2)"
+    );
+    const rightButtons = document.querySelectorAll(
+      ".action-buttons>button:last-child"
+    );
+
+    let index = 1;
+    const toggleCard = () => {
       cards.forEach((card) => {
         card.classList.remove("active");
       });
-      cards[count].classList.add("active");
+      cards[index].classList.add("active");
       animate.heroCarousel();
-      count++;
-      if (count === 3) count = 0;
-    }, 4000);
+      index++;
+      if (index === 3) index = 0;
+    };
+    setInterval(toggleCard, 4000);
+
+    rightButtons.forEach((button) => {
+      button.addEventListener("click", toggleCard);
+    });
+
+    leftButtons.forEach((button) => {
+      button.addEventListener("click", toggleCard);
+    });
   }
 }
 

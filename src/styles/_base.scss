@@ -19,7 +19,6 @@ body {
   align-items: center;
   justify-content: center;
   font-size: clamp(14px, 1vw, 18px);
-  background: $main-color;
 }
 
 p {
@@ -72,13 +71,18 @@ span {
   opacity: 0.4;
 }
 
+main {
+  width: 100%;
+  background-color: $font-color;
+}
+
 @media (width <= 1000px) {
   h1 {
     font-size: 3em;
   }
 
   header {
-    width: 90vw;
+    padding: 22px;
     nav {
       display: none;
     }
@@ -87,7 +91,7 @@ span {
     }
   }
   section.hero {
-    width: 90vw;
+    padding: 0px 22px;
     grid-template-columns: repeat(1, 1fr);
     .hero-banner {
       .hero-buttons {
@@ -122,17 +126,19 @@ span {
   section.our-customers {
     flex-direction: column;
     align-items: center;
+    padding: 0px 22px;
     .left-side {
-      width: 90vw;
+      width: 100%;
       padding-bottom: 22px;
       .stats {
         p {
+          padding: 0;
           padding-bottom: 8px;
         }
       }
     }
     .right-side {
-      width: 90vw;
+      width: 100%;
       flex: 0;
     }
   }
