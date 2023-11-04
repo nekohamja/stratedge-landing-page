@@ -1,10 +1,13 @@
 import "../styles/index.scss";
+import animate from "./animation";
 
 export default class ui {
   static initialize() {
     ui.navBar();
     ui.menuBar();
     ui.carousel();
+    animate.heroCarousel();
+    animate.heroBanner();
   }
 
   static navBar() {
@@ -18,6 +21,7 @@ export default class ui {
         e.currentTarget.classList.add("active");
       });
     });
+    animate.navBar();
   }
 
   static menuBar() {
@@ -41,6 +45,7 @@ export default class ui {
         card.classList.remove("active");
       });
       cards[count].classList.add("active");
+      animate.heroCarousel();
       count++;
       if (count === 3) count = 0;
     }, 4000);

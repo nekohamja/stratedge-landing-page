@@ -299,6 +299,18 @@ section.our-customers {
   }
 }
 
+section.steps {
+  width: 100%;
+
+  .brand-carousel {
+    white-space: nowrap;
+    overflow: hidden;
+    img {
+      padding: 32px 52px;
+    }
+  }
+}
+
 .background {
   background-color: #131316;
   background-image: linear-gradient(
