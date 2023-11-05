@@ -19,13 +19,13 @@ header .brand-logo {
 header nav ul {
   display: flex;
   user-select: none;
-  gap: 22px;
+  gap: 48px;
 }
 header nav ul li p {
   opacity: 0.4;
 }
 header nav ul li img {
-  width: 22px;
+  width: 12px;
 }
 header nav ul li.active p {
   font-weight: 600;
@@ -58,85 +58,92 @@ header .menu dialog {
 }
 
 section.hero {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding: 0px 48px;
 }
-section.hero .hero-banner {
+section.hero .hero-heading {
+  display: flex;
+  gap: 22px;
+}
+section.hero .hero-heading .hero-banner {
   display: flex;
   flex-direction: column;
   padding: 52px 0px;
   gap: 72px;
+  flex: 2;
 }
-section.hero .hero-banner .hero-buttons {
+section.hero .hero-heading .hero-banner > h1 span {
+  opacity: 0.4;
+}
+section.hero .hero-heading .hero-banner .hero-buttons {
   display: flex;
   gap: 12px;
 }
-section.hero .hero-banner .hero-buttons button:first-child {
+section.hero .hero-heading .hero-banner .hero-buttons button:first-child {
   border: 1px solid #a0a0a1;
   border-radius: 32px;
   background: #131316;
   padding: 12px 22px;
 }
-section.hero .hero-banner .hero-buttons button:first-child p {
+section.hero .hero-heading .hero-banner .hero-buttons button:first-child p {
   color: white;
 }
-section.hero .hero-banner .hero-buttons button:first-child img {
+section.hero .hero-heading .hero-banner .hero-buttons button:first-child img {
   filter: brightness(0) invert(1);
 }
-section.hero .hero-banner .hero-buttons button:last-child {
+section.hero .hero-heading .hero-banner .hero-buttons button:last-child {
   border: 1px solid #a0a0a1;
   border-radius: 32px;
   background: #ffffff;
   padding: 12px 22px;
 }
-section.hero .hero-carousel {
+section.hero .hero-heading .hero-carousel {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  flex: 1;
 }
-section.hero .hero-carousel > div {
-  width: 50%;
+section.hero .hero-heading .hero-carousel > div {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   gap: 12px;
 }
-section.hero .hero-carousel > div .card {
+section.hero .hero-heading .hero-carousel > div .card {
   display: none;
   flex-direction: column;
   align-items: flex-start;
   gap: 22px;
 }
-section.hero .hero-carousel > div .card.active {
+section.hero .hero-heading .hero-carousel > div .card.active {
   display: flex;
 }
-section.hero .hero-carousel > div .card > p {
+section.hero .hero-heading .hero-carousel > div .card > p {
   background: rgba(160, 160, 161, 0.337254902);
   padding: 2px 12px;
   border-radius: 22px;
 }
-section.hero .hero-carousel > div .card .action-buttons {
+section.hero .hero-heading .hero-carousel > div .card .action-buttons {
   display: flex;
   width: 100%;
 }
-section.hero .hero-carousel > div .card .action-buttons > img {
+section.hero .hero-heading .hero-carousel > div .card .action-buttons > img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
   border: 2px solid white;
 }
-section.hero .hero-carousel > div .card .action-buttons img:nth-child(2) {
+section.hero .hero-heading .hero-carousel > div .card .action-buttons img:nth-child(2) {
   transform: translateX(-10px);
   z-index: -1;
 }
-section.hero .hero-carousel > div .card .action-buttons img:nth-child(3) {
+section.hero .hero-heading .hero-carousel > div .card .action-buttons img:nth-child(3) {
   transform: translateX(-20px);
   z-index: -2;
 }
-section.hero .hero-carousel > div .card .action-buttons > button:nth-child(4),
-section.hero .hero-carousel > div .card .action-buttons button:nth-child(1) {
+section.hero .hero-heading .hero-carousel > div .card .action-buttons > button:nth-child(4),
+section.hero .hero-heading .hero-carousel > div .card .action-buttons button:nth-child(1) {
   border: 1px solid #a0a0a1;
   border-radius: 32px;
   background: #ffffff;
@@ -146,7 +153,7 @@ section.hero .hero-carousel > div .card .action-buttons button:nth-child(1) {
   padding-right: 14px;
   justify-content: flex-start;
 }
-section.hero .hero-carousel > div .card .action-buttons > button:last-child {
+section.hero .hero-heading .hero-carousel > div .card .action-buttons > button:last-child {
   border: 1px solid #a0a0a1;
   border-radius: 32px;
   background: #131316;
@@ -156,11 +163,10 @@ section.hero .hero-carousel > div .card .action-buttons > button:last-child {
   margin-left: 12px;
   justify-content: center;
 }
-section.hero .hero-carousel > div .card .action-buttons > button:last-child img {
+section.hero .hero-heading .hero-carousel > div .card .action-buttons > button:last-child img {
   filter: brightness(0) invert(1);
 }
 section.hero .hero-footer {
-  grid-column: 1/3;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -179,9 +185,14 @@ section.hero .hero-footer div {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   width: 100%;
   height: 100px;
+  padding: 22px;
   border-right: 1px solid #a0a0a1;
+}
+section.hero .hero-footer div:nth-child(5) {
+  white-space: pre;
 }
 section.hero .hero-footer button {
   border: 1px solid #a0a0a1;
@@ -190,19 +201,19 @@ section.hero .hero-footer button {
   padding: 12px 22px;
 }
 
-section.our-customers {
+section.our-customers-description {
   display: flex;
   align-items: flex-end;
   width: 100%;
   height: 100%;
   padding: 0px 48px;
 }
-section.our-customers h1,
-section.our-customers h3,
-section.our-customers p {
+section.our-customers-description h1,
+section.our-customers-description h3,
+section.our-customers-description p {
   color: white;
 }
-section.our-customers .left-side {
+section.our-customers-description .left-side {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -210,14 +221,14 @@ section.our-customers .left-side {
   gap: 48px;
   flex: 3.5;
 }
-section.our-customers .left-side .socmed {
+section.our-customers-description .left-side .socmed {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding-top: 122px;
   flex: 1;
 }
-section.our-customers .left-side .socmed img {
+section.our-customers-description .left-side .socmed img {
   height: 16px;
   width: 16px;
   padding: 8px;
@@ -225,40 +236,40 @@ section.our-customers .left-side .socmed img {
   border: 1px solid white;
   border-radius: 12px;
 }
-section.our-customers .left-side .customer-icons {
+section.our-customers-description .left-side .customer-icons {
   display: flex;
   width: 100%;
 }
-section.our-customers .left-side .customer-icons > img {
+section.our-customers-description .left-side .customer-icons > img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
 }
-section.our-customers .left-side .customer-icons img:nth-child(1) {
+section.our-customers-description .left-side .customer-icons img:nth-child(1) {
   z-index: 4;
 }
-section.our-customers .left-side .customer-icons img:nth-child(2) {
+section.our-customers-description .left-side .customer-icons img:nth-child(2) {
   transform: translateX(-10px);
   z-index: 3;
 }
-section.our-customers .left-side .customer-icons img:nth-child(3) {
+section.our-customers-description .left-side .customer-icons img:nth-child(3) {
   transform: translateX(-20px);
   z-index: 2;
 }
-section.our-customers .left-side .customer-icons img:nth-child(4) {
+section.our-customers-description .left-side .customer-icons img:nth-child(4) {
   transform: translateX(-30px);
   z-index: 1;
 }
-section.our-customers .left-side .customer-icons img:nth-child(5) {
+section.our-customers-description .left-side .customer-icons img:nth-child(5) {
   transform: translateX(-40px);
   z-index: 0;
 }
-section.our-customers .left-side .customer-title {
+section.our-customers-description .left-side .customer-title {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-section.our-customers .left-side .customer-title button {
+section.our-customers-description .left-side .customer-title button {
   display: flex;
   justify-items: flex-start;
   align-items: center;
@@ -267,10 +278,10 @@ section.our-customers .left-side .customer-title button {
   gap: 12px;
   padding-left: 12px;
 }
-section.our-customers .left-side .customer-title button h3 {
+section.our-customers-description .left-side .customer-title button h3 {
   font-weight: lighter;
 }
-section.our-customers .left-side .customer-title button img {
+section.our-customers-description .left-side .customer-title button img {
   width: 22px;
   height: 22px;
   background: white;
@@ -278,53 +289,55 @@ section.our-customers .left-side .customer-title button img {
   flex-shrink: 0;
   transform: rotate(-45deg);
 }
-section.our-customers .left-side .stats {
+section.our-customers-description .left-side .stats {
   display: flex;
   align-items: flex-end;
 }
-section.our-customers .left-side .stats h1 {
+section.our-customers-description .left-side .stats h1 {
   font-weight: 400;
   padding-right: 8px;
 }
-section.our-customers .left-side .stats h1:nth-child(3)::after {
+section.our-customers-description .left-side .stats h1:nth-child(3)::after {
   content: "%";
   font-size: 0.5em;
 }
-section.our-customers .left-side .stats p {
+section.our-customers-description .left-side .stats p {
   padding-right: 22px;
   padding-bottom: 14px;
 }
-section.our-customers .right-side {
+section.our-customers-description .right-side {
   display: flex;
   flex-direction: column;
   flex: 1;
   gap: 22px;
 }
-section.our-customers .right-side .tags {
+section.our-customers-description .right-side .tags {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  text-align: center;
 }
-section.our-customers .right-side .tags p {
+section.our-customers-description .right-side .tags p {
   border: 1px solid #a0a0a1;
   font-size: 0.8em;
   padding: 4px 22px;
   border-radius: 22px;
 }
 
-section.steps {
+section.our-customers {
   width: 100%;
+  background-color: #131316;
+  position: relative;
 }
-section.steps .brand-carousel {
+section.our-customers .scroll-indicator {
+  width: 100%;
   display: flex;
-  white-space: nowrap;
-  overflow: hidden;
+  justify-content: center;
+  position: absolute;
+  padding-top: 22px;
+  z-index: 1;
 }
-section.steps .brand-carousel .logos img {
-  padding: 32px 52px;
-}
-
-.background {
+section.our-customers .background {
   background-color: #131316;
   background-image: linear-gradient(0deg, rgb(19, 19, 22) 0%, rgba(255, 255, 255, 0) 100%), url(./assets/background.jpg);
   background-repeat: no-repeat;
@@ -339,13 +352,31 @@ section.steps .brand-carousel .logos img {
   z-index: -10;
   padding-bottom: 32px;
 }
-.background .divider {
+section.our-customers .background .divider {
   width: 95vw;
   height: 62px;
   opacity: 0.4;
   border: 1px solid #a0a0a1;
   border-radius: 8px 8px 72px 72px;
   clip-path: polygon(0 7%, 100% 7%, 100% 100%, 0 100%);
+}
+
+section.steps {
+  width: 100%;
+}
+section.steps .brand-carousel {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+}
+section.steps .brand-carousel .logos img {
+  padding: 32px 52px;
+}
+
+section.reviews {
+  width: 100%;
+  height: 1000px;
+  background-color: gray;
 }
 
 * {
@@ -414,16 +445,7 @@ li {
   gap: 8px;
 }
 
-span {
-  opacity: 0.4;
-}
-
-main {
-  width: 100%;
-  background-color: #131316;
-}
-
-@media (width <= 1000px) {
+@media (width <= 550px) {
   h1 {
     font-size: 3em;
   }
@@ -440,48 +462,61 @@ main {
     padding: 0px 22px;
     grid-template-columns: repeat(1, 1fr);
   }
-  section.hero .hero-banner .hero-buttons {
+  section.hero .hero-heading {
     flex-direction: column;
   }
-  section.hero .hero-banner .hero-buttons > button {
+  section.hero .hero-heading .hero-banner {
+    justify-content: center;
+    align-items: center;
+  }
+  section.hero .hero-heading .hero-banner .hero-buttons > button {
     display: flex;
     justify-content: center;
   }
-  section.hero .hero-carousel {
+  section.hero .hero-heading .hero-carousel {
     align-items: center;
     justify-content: center;
   }
-  section.hero .hero-carousel > div {
+  section.hero .hero-heading .hero-carousel > div {
     width: 100%;
   }
-  section.hero .hero-footer {
-    grid-column: 1;
-  }
-  section.hero .hero-footer div:nth-child(1),
-  section.hero .hero-footer div:nth-child(2),
   section.hero .hero-footer div:nth-child(3),
   section.hero .hero-footer div:nth-child(4) {
     display: none;
   }
-  section.hero .hero-footer div:nth-child(5) {
-    padding: 22px;
-    border: none;
-  }
-  section.our-customers {
+  section.our-customers-description {
     flex-direction: column;
     align-items: center;
     padding: 0px 22px;
   }
-  section.our-customers .left-side {
+  section.our-customers-description .left-side {
     width: 100%;
     padding-bottom: 22px;
   }
-  section.our-customers .left-side .stats p {
+  section.our-customers-description .left-side .stats p {
     padding: 0;
     padding-bottom: 8px;
   }
-  section.our-customers .right-side {
+  section.our-customers-description .right-side {
     width: 100%;
     flex: 0;
+  }
+}
+@media (width <= 1000px) {
+  header nav ul li:last-child {
+    display: none;
+  }
+  header .menu {
+    margin-left: 32px;
+  }
+  section.hero .hero-heading {
+    flex-direction: column;
+  }
+  section.hero .hero-footer div:nth-child(1),
+  section.hero .hero-footer div:nth-child(2) {
+    display: none;
+  }
+  section.hero .hero-footer div:nth-child(5) {
+    border: none;
   }
 }

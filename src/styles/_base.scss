@@ -67,16 +67,7 @@ li {
   gap: 8px;
 }
 
-span {
-  opacity: 0.4;
-}
-
-main {
-  width: 100%;
-  background-color: $font-color;
-}
-
-@media (width <= 1000px) {
+@media (width <= 550px) {
   h1 {
     font-size: 3em;
   }
@@ -93,37 +84,34 @@ main {
   section.hero {
     padding: 0px 22px;
     grid-template-columns: repeat(1, 1fr);
-    .hero-banner {
-      .hero-buttons {
-        flex-direction: column;
-        > button {
-          display: flex;
-          justify-content: center;
+    .hero-heading {
+      flex-direction: column;
+      .hero-banner {
+        justify-content: center;
+        align-items: center;
+        .hero-buttons {
+          > button {
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+      .hero-carousel {
+        align-items: center;
+        justify-content: center;
+        > div {
+          width: 100%;
         }
       }
     }
-    .hero-carousel {
-      align-items: center;
-      justify-content: center;
-      > div {
-        width: 100%;
-      }
-    }
     .hero-footer {
-      grid-column: 1;
-      div:nth-child(1),
-      div:nth-child(2),
       div:nth-child(3),
       div:nth-child(4) {
         display: none;
       }
-      div:nth-child(5) {
-        padding: 22px;
-        border: none;
-      }
     }
   }
-  section.our-customers {
+  section.our-customers-description {
     flex-direction: column;
     align-items: center;
     padding: 0px 22px;
@@ -140,6 +128,31 @@ main {
     .right-side {
       width: 100%;
       flex: 0;
+    }
+  }
+}
+
+@media (width <= 1000px) {
+  header {
+    nav ul li:last-child {
+      display: none;
+    }
+    .menu {
+      margin-left: 32px;
+    }
+  }
+  section.hero {
+    .hero-heading {
+      flex-direction: column;
+    }
+    .hero-footer {
+      div:nth-child(1),
+      div:nth-child(2) {
+        display: none;
+      }
+      div:nth-child(5) {
+        border: none;
+      }
     }
   }
 }

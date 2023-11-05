@@ -6,9 +6,8 @@ export default class ui {
     ui.navBar();
     ui.menuBar();
     ui.carousel();
-    animate.background();
-    animate.heroCarousel();
-    animate.heroBanner();
+    animate.hero();
+    animate.customersPanel();
     animate.logoCarousel();
   }
 
