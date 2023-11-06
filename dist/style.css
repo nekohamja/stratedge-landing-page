@@ -483,10 +483,72 @@ section.steps .steps-grid > div:nth-child(5) {
 
 section.reviews {
   width: 100%;
-  height: 1000px;
+}
+section.reviews > h3 {
+  padding: 22px;
+  font-size: 3em;
+  letter-spacing: -2px;
+  text-align: center;
+}
+section.reviews .reviews-carousel {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+section.reviews .reviews-carousel .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 400px;
+  padding: 22px;
+  gap: 22px;
+  border-radius: 32px;
+  background-color: rgba(160, 160, 161, 0.1294117647);
+}
+section.reviews .reviews-carousel .card .profile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+section.reviews .reviews-carousel .card .profile div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.reviews .reviews-carousel .card .profile img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+section.reviews .reviews-carousel .card .feedback .stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+section.reviews .reviews-carousel .card .feedback .stars img {
+  width: 18px;
+}
+section.reviews .reviews-carousel .card .feedback .stars img.off {
+  opacity: 0.4;
+}
+section.reviews .reviews-carousel .card .feedback h3 {
+  padding-top: 8px;
+  font-weight: 500;
 }
 
-* {
+footer {
+  display: flex;
+  width: 100%;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -551,6 +613,10 @@ li {
   align-items: center;
   cursor: pointer;
   gap: 8px;
+}
+
+a {
+  line-height: 0;
 }
 
 @media (width <= 550px) {
@@ -630,6 +696,9 @@ li {
   }
   section.steps .steps-grid > div:nth-child(4) {
     border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
+  }
+  section.reviews .reviews-carousel {
+    padding: 22px;
   }
 }
 @media (width <= 1000px) {
