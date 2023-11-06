@@ -9,10 +9,10 @@ export default class animate {
     animate.heroCarousel();
     animate.heroNav();
     animate.heroFooter();
-    animate.heroButton("nav ul li");
-    animate.heroButton(".hero-buttons>button:first-child");
-    animate.heroButton(".action-buttons>button");
-    animate.heroButton(".hero-footer>div:last-child>button");
+    animate.button("nav ul li");
+    animate.button(".hero-buttons>button:first-child");
+    animate.button(".action-buttons>button");
+    animate.button(".hero-footer>div:last-child");
   }
 
   static heroFooter() {
@@ -29,7 +29,7 @@ export default class animate {
       .to(".hero-footer>div:last-child>button>img", {
         x: 5,
         yoyo: true,
-        repeat: 4,
+        repeat: 2,
         duration: 0.2,
       });
   }
@@ -86,22 +86,23 @@ export default class animate {
       .to("header img", { filter: "brightness(0) invert(1)" }, 0);
   }
 
-  static heroButton(selector) {
-    gsap.utils.toArray(selector).forEach((button) => {
-      const arrow = button.querySelector("img");
-      const hover = gsap.timeline({ paused: true });
-      hover.to(arrow, { x: 5, yoyo: true, repeat: -1, duration: 0.2 });
-      button.addEventListener("mouseenter", () => hover.play());
-      button.addEventListener("mouseleave", () => hover.timeScale(1).reverse());
-    });
-  }
-
   static heroCarousel() {
     const carousel = gsap.timeline();
     carousel
       .from(".card.active", { x: -40, ease: "power4.out" })
       .from(".card.active>*", { x: 15, stagger: 0.2 }, 0)
       .from(".card.active .action-buttons>*", { x: 5, stagger: 0.1 }, 0);
+  }
+
+  // all buttons animation
+  static button(selector) {
+    gsap.utils.toArray(selector).forEach((button) => {
+      const arrow = button.querySelector("img");
+      const hover = gsap.timeline({ paused: true });
+      hover.to(arrow, { x: 5, yoyo: true, repeat: -1, duration: 0.2 });
+      button.addEventListener("mouseenter", () => hover.play());
+      button.addEventListener("mouseleave", () => hover.reverse());
+    });
   }
 
   // 'our customers' panel animations
@@ -116,38 +117,62 @@ export default class animate {
       yoyo: true,
       repeat: -1,
       duration: 0.2,
+      ease: "power4.out",
     });
 
     const leftPanel = gsap.timeline({
       scrollTrigger: {
         trigger: ".customer-icons",
-        toggleActions: "restart none restart none",
+        toggleActions: "restart none none none",
       },
     });
     leftPanel.from(".left-side>*:not(.socmed)", {
       y: 40,
-      stagger: 0.25,
+      stagger: 0.1,
     });
 
     const rightPanel = gsap.timeline({
       scrollTrigger: {
         trigger: ".tags",
-        toggleActions: "restart none restart none",
+        toggleActions: "restart none none none",
       },
     });
     rightPanel.from(".right-side>*", {
       y: 40,
-      stagger: 0.25,
+      stagger: 0.1,
+      ease: "power4.out",
     });
   }
 
-  static logoCarousel() {
-    const carousel = gsap.timeline();
-    carousel.to(".logos", {
-      xPercent: -100,
-      duration: 60,
-      repeat: -1,
-      ease: "none",
+  // 'steps' panel animations
+  static stepsPanel() {
+    animate.stepsCarousel(".brand-carousel", ".logos", -20, -100);
+    animate.stepsCarousel(".traits-title", ".traits-title>h1", -20, -200);
+    animate.stepsCarousel(".traits-subtext", ".traits-subtext>div", 10, 100);
+    animate.button(".steps-grid>div:first-child>button");
+  }
+
+  static stepsCarousel(parent, child, initialSpeed, speed) {
+    const cardContainer = document.querySelector(parent);
+    const carousel = gsap.timeline({
+      scrollTrigger: {
+        trigger: parent,
+        toggleActions: "restart none none none",
+      },
     });
+    carousel
+      .to(child, {
+        xPercent: initialSpeed,
+        duration: 2,
+        ease: "power4.out",
+      })
+      .to(
+        child,
+        { xPercent: speed, duration: 80, repeat: -1, ease: "none" },
+        ">-1"
+      );
+
+    cardContainer.addEventListener("mouseenter", () => carousel.pause());
+    cardContainer.addEventListener("mouseleave", () => carousel.resume());
   }
 }

@@ -9,6 +9,7 @@ header {
   padding: 22px 48px;
   z-index: 20;
   background: white;
+  border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
 }
 header .brand-logo {
   display: flex;
@@ -65,7 +66,6 @@ section.hero {
 }
 section.hero .hero-heading {
   display: flex;
-  gap: 22px;
 }
 section.hero .hero-heading .hero-banner {
   display: flex;
@@ -372,11 +372,118 @@ section.steps .brand-carousel {
 section.steps .brand-carousel .logos img {
   padding: 32px 52px;
 }
+section.steps .traits-title {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  gap: 72px;
+  padding-bottom: 32px;
+  border-top: 1px solid rgba(160, 160, 161, 0.3647058824);
+}
+section.steps .traits-title h1 {
+  font-size: 15em;
+  letter-spacing: -10px;
+}
+section.steps .traits-subtext {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
+  direction: rtl;
+  gap: 72px;
+}
+section.steps .traits-subtext div {
+  display: flex;
+  gap: 72px;
+}
+section.steps .traits-subtext div img {
+  opacity: 0.5;
+  width: 24px;
+  transform: rotate(30deg);
+}
+section.steps .traits-subtext div h3 {
+  font-size: 2em;
+  font-weight: 400;
+  letter-spacing: -2px;
+}
+section.steps .steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0px 48px;
+  padding-right: 0;
+  border: 1px solid rgba(160, 160, 161, 0.3647058824);
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+}
+section.steps .steps-grid > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 22px;
+  border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
+  border-right: 1px solid rgba(160, 160, 161, 0.3647058824);
+}
+section.steps .steps-grid > div .number {
+  background: rgba(160, 160, 161, 0.337254902);
+  padding: 2px 12px;
+  margin-bottom: 8px;
+  border-radius: 22px;
+}
+section.steps .steps-grid > div > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  margin-top: 22px;
+  border-radius: 32px;
+  background: rgba(160, 160, 161, 0.0823529412);
+}
+section.steps .steps-grid > div > div img {
+  border: 1px solid #a0a0a1;
+  border-radius: 32px;
+  background: #ffffff;
+  z-index: 2;
+  height: 35px;
+  width: 35px;
+}
+section.steps .steps-grid > div > div img:nth-child(2) {
+  z-index: 1;
+  transform: translateX(-10px) rotate(-45deg);
+}
+section.steps .steps-grid > div:first-child {
+  gap: 22px;
+  padding-left: 0;
+  grid-row: 1/3;
+}
+section.steps .steps-grid > div:first-child button {
+  border: 1px solid #a0a0a1;
+  border-radius: 32px;
+  background: #ffffff;
+  padding: 6px 22px;
+}
+section.steps .steps-grid > div:first-child p {
+  flex: 1;
+}
+section.steps .steps-grid > div:first-child h3 {
+  font-size: 3em;
+  letter-spacing: -2px;
+}
+section.steps .steps-grid > div:nth-child(3),
+section.steps .steps-grid > div:nth-child(5) {
+  border-right: none;
+}
+section.steps .steps-grid > div:nth-child(1),
+section.steps .steps-grid > div:nth-child(4),
+section.steps .steps-grid > div:nth-child(5) {
+  border-bottom: none;
+}
 
 section.reviews {
   width: 100%;
   height: 1000px;
-  background-color: gray;
 }
 
 * {
@@ -410,6 +517,7 @@ h1 {
   font-size: 5.5em;
   font-weight: 600;
   color: #131316;
+  letter-spacing: -6px;
 }
 
 h3 {
@@ -448,6 +556,7 @@ li {
 @media (width <= 550px) {
   h1 {
     font-size: 3em;
+    letter-spacing: -1px;
   }
   header {
     padding: 22px;
@@ -474,6 +583,7 @@ li {
     justify-content: center;
   }
   section.hero .hero-heading .hero-carousel {
+    min-height: 276px;
     align-items: center;
     justify-content: center;
   }
@@ -501,6 +611,26 @@ li {
     width: 100%;
     flex: 0;
   }
+  section.steps .traits-title > h1 {
+    font-size: 8em;
+    letter-spacing: -4px;
+  }
+  section.steps .steps-grid {
+    padding: 0;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  section.steps .steps-grid > div {
+    border: 0;
+    border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
+  }
+  section.steps .steps-grid > div:first-child {
+    padding: 22px;
+    align-items: center;
+    border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
+  }
+  section.steps .steps-grid > div:nth-child(4) {
+    border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
+  }
 }
 @media (width <= 1000px) {
   header nav ul li:last-child {
@@ -511,6 +641,9 @@ li {
   }
   section.hero .hero-heading {
     flex-direction: column;
+  }
+  section.hero .hero-carousel {
+    min-height: 150px;
   }
   section.hero .hero-footer div:nth-child(1),
   section.hero .hero-footer div:nth-child(2) {

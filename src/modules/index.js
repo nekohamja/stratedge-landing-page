@@ -8,7 +8,7 @@ export default class ui {
     ui.carousel();
     animate.hero();
     animate.customersPanel();
-    animate.logoCarousel();
+    animate.stepsPanel();
   }
 
   static navBar() {

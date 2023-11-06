@@ -10,6 +10,7 @@ header {
   padding: 22px 48px;
   z-index: 20;
   background: white;
+  border-bottom: 1px solid #a0a0a15d;
   .brand-logo {
     display: flex;
     align-items: center;
@@ -67,7 +68,6 @@ section.hero {
   padding: 0px 48px;
   .hero-heading {
     display: flex;
-    gap: 22px;
     .hero-banner {
       display: flex;
       flex-direction: column;
@@ -364,7 +364,6 @@ section.our-customers {
 
 section.steps {
   width: 100%;
-
   .brand-carousel {
     display: flex;
     white-space: nowrap;
@@ -375,10 +374,115 @@ section.steps {
       }
     }
   }
+  .traits-title {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    gap: 72px;
+    padding-bottom: 32px;
+    border-top: 1px solid #a0a0a15d;
+    h1 {
+      font-size: 15em;
+      letter-spacing: -10px;
+    }
+  }
+  .traits-subtext {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #a0a0a15d;
+    direction: rtl;
+    gap: 72px;
+    div {
+      display: flex;
+      gap: 72px;
+      img {
+        opacity: 0.5;
+        width: 24px;
+        transform: rotate(30deg);
+      }
+      h3 {
+        font-size: 2em;
+        font-weight: 400;
+        letter-spacing: -2px;
+      }
+    }
+  }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0px 48px;
+    padding-right: 0;
+    border: 1px solid #a0a0a15d;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 22px;
+      border-bottom: 1px solid #a0a0a15d;
+      border-right: 1px solid #a0a0a15d;
+
+      .number {
+        background: #a0a0a156;
+        padding: 2px 12px;
+        margin-bottom: 8px;
+        border-radius: 22px;
+      }
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        margin-top: 22px;
+        border-radius: 32px;
+        background: #a0a0a115;
+        img {
+          @include button("");
+          z-index: 2;
+          height: 35px;
+          width: 35px;
+        }
+        img:nth-child(2) {
+          z-index: 1;
+          transform: translateX(-10px) rotate(-45deg);
+        }
+      }
+    }
+    > div:first-child {
+      gap: 22px;
+      padding-left: 0;
+
+      button {
+        @include button("");
+        padding: 6px 22px;
+      }
+      p {
+        flex: 1;
+      }
+      h3 {
+        font-size: 3em;
+        letter-spacing: -2px;
+      }
+      grid-row: 1/3;
+    }
+    > div:nth-child(3),
+    > div:nth-child(5) {
+      border-right: none;
+    }
+    > div:nth-child(1),
+    > div:nth-child(4),
+    > div:nth-child(5) {
+      border-bottom: none;
+    }
+  }
 }
 
 section.reviews {
   width: 100%;
   height: 1000px;
-  background-color: gray;
 }

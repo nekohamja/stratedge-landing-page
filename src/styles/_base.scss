@@ -32,6 +32,7 @@ h1 {
   font-size: 5.5em;
   font-weight: 600;
   color: $font-color;
+  letter-spacing: -6px;
 }
 
 h3 {
@@ -70,6 +71,7 @@ li {
 @media (width <= 550px) {
   h1 {
     font-size: 3em;
+    letter-spacing: -1px;
   }
 
   header {
@@ -97,6 +99,7 @@ li {
         }
       }
       .hero-carousel {
+        min-height: 276px;
         align-items: center;
         justify-content: center;
         > div {
@@ -130,6 +133,28 @@ li {
       flex: 0;
     }
   }
+  section.steps {
+    .traits-title > h1 {
+      font-size: 8em;
+      letter-spacing: -4px;
+    }
+    .steps-grid {
+      padding: 0;
+      grid-template-columns: repeat(1, 1fr);
+      > div {
+        border: 0;
+        border-bottom: 1px solid #a0a0a15d;
+      }
+      > div:first-child {
+        padding: 22px;
+        align-items: center;
+        border-bottom: 1px solid #a0a0a15d;
+      }
+      > div:nth-child(4) {
+        border-bottom: 1px solid #a0a0a15d;
+      }
+    }
+  }
 }
 
 @media (width <= 1000px) {
@@ -144,6 +169,9 @@ li {
   section.hero {
     .hero-heading {
       flex-direction: column;
+    }
+    .hero-carousel {
+      min-height: 150px;
     }
     .hero-footer {
       div:nth-child(1),
