@@ -1,6 +1,7 @@
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 export default class animate {
@@ -13,6 +14,7 @@ export default class animate {
     animate.button(".hero-buttons>button:first-child");
     animate.button(".action-buttons>button");
     animate.button(".hero-footer>div:last-child");
+    animate.onScroll(".hero-banner>h1", ".hero-banner>*");
   }
 
   static heroFooter() {
@@ -94,7 +96,7 @@ export default class animate {
       .from(".card.active .action-buttons>*", { x: 5, stagger: 0.1 }, 0);
   }
 
-  // all buttons animation
+  // button hover animation
   static button(selector) {
     gsap.utils.toArray(selector).forEach((button) => {
       const arrow = button.querySelector("img");
@@ -105,11 +107,24 @@ export default class animate {
     });
   }
 
+  // animate an element on scroll
+  static onScroll(triggerElement, element) {
+    const animate = gsap.timeline({
+      scrollTrigger: {
+        trigger: triggerElement,
+        toggleActions: "restart none none none",
+      },
+    });
+    animate.from(element, {
+      y: 40,
+      stagger: 0.1,
+    });
+  }
+
   // 'our customers' panel animations
   static customersPanel() {
     const background = gsap.timeline();
     background.from(".background", { opacity: 0, duration: 1 });
-
     const indicator = gsap.timeline();
     indicator.to(".scroll-indicator>svg", {
       y: -8,
@@ -120,28 +135,9 @@ export default class animate {
       ease: "power4.out",
     });
 
-    const leftPanel = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".customer-icons",
-        toggleActions: "restart none none none",
-      },
-    });
-    leftPanel.from(".left-side>*:not(.socmed)", {
-      y: 40,
-      stagger: 0.1,
-    });
-
-    const rightPanel = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".tags",
-        toggleActions: "restart none none none",
-      },
-    });
-    rightPanel.from(".right-side>*", {
-      y: 40,
-      stagger: 0.1,
-      ease: "power4.out",
-    });
+    animate.onScroll(".customer-icons", ".left-side>*:not(.socmed)");
+    animate.onScroll(".tags", ".right-side>*");
+    animate.onScroll(".socmed>img:nth-child(3)", ".socmed>*");
   }
 
   // 'steps' panel animations
@@ -150,29 +146,55 @@ export default class animate {
     animate.stepsCarousel(".traits-title", ".traits-title>h1", -20, -200);
     animate.stepsCarousel(".traits-subtext", ".traits-subtext>div", 10, 100);
     animate.button(".steps-grid>div:first-child>button");
+    gsap.utils.toArray(".steps-grid>div").forEach((element, i) => {
+      animate.onScroll(`.steps-grid>div:nth-child(${i + 1})`, element);
+    });
   }
 
-  static stepsCarousel(parent, child, initialSpeed, speed) {
-    const cardContainer = document.querySelector(parent);
+  static stepsCarousel(triggerElement, element, initialDistance, distance) {
+    const cardContainer = document.querySelector(triggerElement);
     const carousel = gsap.timeline({
       scrollTrigger: {
-        trigger: parent,
+        trigger: triggerElement,
         toggleActions: "restart none none none",
       },
     });
     carousel
-      .to(child, {
-        xPercent: initialSpeed,
+      .to(element, {
+        xPercent: initialDistance,
         duration: 2,
         ease: "power4.out",
       })
       .to(
-        child,
-        { xPercent: speed, duration: 80, repeat: -1, ease: "none" },
+        element,
+        { xPercent: distance, duration: 80, repeat: -1, ease: "none" },
         ">-1"
       );
 
     cardContainer.addEventListener("mouseenter", () => carousel.pause());
     cardContainer.addEventListener("mouseleave", () => carousel.resume());
+  }
+
+  // reviews panel animations
+  static reviewsPanel() {
+    const animate = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".reviews-carousel",
+        toggleActions: "restart none none none",
+      },
+    });
+    animate
+      .from(".reviews-carousel>div", {
+        x: 50,
+        stagger: 0.1,
+      })
+      .from(
+        ".reviews-carousel>div>*",
+        {
+          x: 50,
+          stagger: 0.05,
+        },
+        0
+      );
   }
 }

@@ -120,7 +120,7 @@ section.hero .hero-heading .hero-carousel > div .card.active {
   display: flex;
 }
 section.hero .hero-heading .hero-carousel > div .card > p {
-  background: rgba(160, 160, 161, 0.337254902);
+  background: rgba(160, 160, 161, 0.1450980392);
   padding: 2px 12px;
   border-radius: 22px;
 }
@@ -398,7 +398,7 @@ section.steps .traits-subtext div {
   gap: 72px;
 }
 section.steps .traits-subtext div img {
-  opacity: 0.5;
+  opacity: 0.3;
   width: 24px;
   transform: rotate(30deg);
 }
@@ -412,10 +412,6 @@ section.steps .steps-grid {
   grid-template-columns: repeat(3, 1fr);
   padding: 0px 48px;
   padding-right: 0;
-  border: 1px solid rgba(160, 160, 161, 0.3647058824);
-  border-top: 0;
-  border-right: 0;
-  border-left: 0;
 }
 section.steps .steps-grid > div {
   display: flex;
@@ -427,7 +423,7 @@ section.steps .steps-grid > div {
   border-right: 1px solid rgba(160, 160, 161, 0.3647058824);
 }
 section.steps .steps-grid > div .number {
-  background: rgba(160, 160, 161, 0.337254902);
+  background: rgba(160, 160, 161, 0.1450980392);
   padding: 2px 12px;
   margin-bottom: 8px;
   border-radius: 22px;
@@ -437,9 +433,10 @@ section.steps .steps-grid > div > div {
   align-items: center;
   justify-content: center;
   padding: 12px;
+  padding-right: 48px;
   margin-top: 22px;
   border-radius: 32px;
-  background: rgba(160, 160, 161, 0.0823529412);
+  background: rgba(160, 160, 161, 0.1450980392);
 }
 section.steps .steps-grid > div > div img {
   border: 1px solid #a0a0a1;
@@ -478,7 +475,7 @@ section.steps .steps-grid > div:nth-child(5) {
 section.steps .steps-grid > div:nth-child(1),
 section.steps .steps-grid > div:nth-child(4),
 section.steps .steps-grid > div:nth-child(5) {
-  border-bottom: none;
+  border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
 }
 
 section.reviews {
@@ -493,18 +490,24 @@ section.reviews > h3 {
 section.reviews .reviews-carousel {
   display: flex;
   justify-content: center;
-  gap: 22px;
   flex-wrap: wrap;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 22px;
+  margin: 32px;
 }
 section.reviews .reviews-carousel .card {
+  scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  overflow: hidden;
+  flex-shrink: 0;
   width: 400px;
   padding: 22px;
   gap: 22px;
   border-radius: 32px;
-  background-color: rgba(160, 160, 161, 0.1294117647);
+  background-color: rgba(160, 160, 161, 0.1450980392);
 }
 section.reviews .reviews-carousel .card .profile {
   display: flex;
@@ -524,10 +527,10 @@ section.reviews .reviews-carousel .card .profile img {
 section.reviews .reviews-carousel .card .feedback .stars {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 section.reviews .reviews-carousel .card .feedback .stars img {
-  width: 18px;
+  width: 14px;
 }
 section.reviews .reviews-carousel .card .feedback .stars img.off {
   opacity: 0.4;
@@ -681,24 +684,18 @@ a {
     font-size: 8em;
     letter-spacing: -4px;
   }
-  section.steps .steps-grid {
-    padding: 0;
-    grid-template-columns: repeat(1, 1fr);
-  }
-  section.steps .steps-grid > div {
-    border: 0;
-    border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
-  }
-  section.steps .steps-grid > div:first-child {
-    padding: 22px;
-    align-items: center;
-    border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
-  }
-  section.steps .steps-grid > div:nth-child(4) {
-    border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
+  section.steps .steps-grid > div > div {
+    padding: 12px;
   }
   section.reviews .reviews-carousel {
     padding: 22px;
+    margin: 0;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow: scroll;
+  }
+  section.reviews .reviews-carousel .card {
+    width: 260px;
   }
 }
 @media (width <= 1000px) {
@@ -720,5 +717,21 @@ a {
   }
   section.hero .hero-footer div:nth-child(5) {
     border: none;
+  }
+  section.steps .steps-grid {
+    padding: 0;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  section.steps .steps-grid > div {
+    border: 0;
+    border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
+  }
+  section.steps .steps-grid > div:first-child {
+    padding: 22px;
+    align-items: center;
+    border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
+  }
+  section.steps .steps-grid > div:nth-child(4) {
+    border-bottom: 1px solid rgba(160, 160, 161, 0.3647058824);
   }
 }

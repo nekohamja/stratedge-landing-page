@@ -115,7 +115,7 @@ section.hero {
             display: flex;
           }
           > p {
-            background: #a0a0a156;
+            background: #a0a0a125;
             padding: 2px 12px;
             border-radius: 22px;
           }
@@ -398,7 +398,7 @@ section.steps {
       display: flex;
       gap: 72px;
       img {
-        opacity: 0.5;
+        opacity: 0.3;
         width: 24px;
         transform: rotate(30deg);
       }
@@ -414,10 +414,6 @@ section.steps {
     grid-template-columns: repeat(3, 1fr);
     padding: 0px 48px;
     padding-right: 0;
-    border: 1px solid #a0a0a15d;
-    border-top: 0;
-    border-right: 0;
-    border-left: 0;
     > div {
       display: flex;
       flex-direction: column;
@@ -426,9 +422,8 @@ section.steps {
       padding: 22px;
       border-bottom: 1px solid #a0a0a15d;
       border-right: 1px solid #a0a0a15d;
-
       .number {
-        background: #a0a0a156;
+        background: #a0a0a125;
         padding: 2px 12px;
         margin-bottom: 8px;
         border-radius: 22px;
@@ -438,9 +433,10 @@ section.steps {
         align-items: center;
         justify-content: center;
         padding: 12px;
+        padding-right: 48px;
         margin-top: 22px;
         border-radius: 32px;
-        background: #a0a0a115;
+        background: #a0a0a125;
         img {
           @include button("");
           z-index: 2;
@@ -477,7 +473,7 @@ section.steps {
     > div:nth-child(1),
     > div:nth-child(4),
     > div:nth-child(5) {
-      border-bottom: none;
+      border-bottom: 1px solid #a0a0a15d;
     }
   }
 }
@@ -493,17 +489,23 @@ section.reviews {
   .reviews-carousel {
     display: flex;
     justify-content: center;
-    gap: 22px;
     flex-wrap: wrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 22px;
+    margin: 32px;
     .card {
+      scroll-snap-align: center;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      overflow: hidden;
+      flex-shrink: 0;
       width: 400px;
       padding: 22px;
       gap: 22px;
       border-radius: 32px;
-      background-color: #a0a0a121;
+      background-color: #a0a0a125;
       .profile {
         display: flex;
         flex-wrap: wrap;
@@ -523,9 +525,9 @@ section.reviews {
         .stars {
           display: flex;
           align-items: center;
-          gap: 4px;
+          gap: 2px;
           img {
-            width: 18px;
+            width: 14px;
           }
           img.off {
             opacity: 0.4;

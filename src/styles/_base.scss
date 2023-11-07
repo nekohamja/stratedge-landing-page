@@ -145,25 +145,21 @@ a {
       letter-spacing: -4px;
     }
     .steps-grid {
-      padding: 0;
-      grid-template-columns: repeat(1, 1fr);
-      > div {
-        border: 0;
-        border-bottom: 1px solid #a0a0a15d;
-      }
-      > div:first-child {
-        padding: 22px;
-        align-items: center;
-        border-bottom: 1px solid #a0a0a15d;
-      }
-      > div:nth-child(4) {
-        border-bottom: 1px solid #a0a0a15d;
+      > div > div {
+        padding: 12px;
       }
     }
   }
   section.reviews {
     .reviews-carousel {
       padding: 22px;
+      margin: 0;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      overflow: scroll;
+      .card {
+        width: 260px;
+      }
     }
   }
 }
@@ -191,6 +187,25 @@ a {
       }
       div:nth-child(5) {
         border: none;
+      }
+    }
+  }
+  section.steps {
+    .steps-grid {
+      padding: 0;
+      grid-template-columns: repeat(1, 1fr);
+
+      > div {
+        border: 0;
+        border-bottom: 1px solid #a0a0a15d;
+      }
+      > div:first-child {
+        padding: 22px;
+        align-items: center;
+        border-bottom: 1px solid #a0a0a15d;
+      }
+      > div:nth-child(4) {
+        border-bottom: 1px solid #a0a0a15d;
       }
     }
   }

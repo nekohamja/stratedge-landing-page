@@ -9,6 +9,7 @@ export default class ui {
     animate.hero();
     animate.customersPanel();
     animate.stepsPanel();
+    animate.reviewsPanel();
   }
 
   static navBar() {
@@ -68,4 +69,5 @@ export default class ui {
   }
 }
 
+// initialize event listeners / animations
 document.addEventListener("DOMContentLoaded", ui.initialize);
