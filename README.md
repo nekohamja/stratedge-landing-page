@@ -12,13 +12,13 @@ https://nekohamja.github.io/stratedge-landing-page/
     webpack
     
 ### assets
-Background Image: 
-    Mo Eid (https://www.instagram.com/mo.design.ig/) (https://www.pexels.com/@mo-eid-1268975/)
-Icons: 
-    remixicon (https://remixicon.com/)
-    svgrepo (https://www.svgrepo.com/)
-    logoipsum (https://logoipsum.com/)
-Profile Pictures:
-    randomuser.me (https://randomuser.me/)
+    Background Image: 
+        Mo Eid (https://www.instagram.com/mo.design.ig/) (https://www.pexels.com/@mo-eid-1268975/)
+    Icons: 
+        remixicon (https://remixicon.com/)
+        svgrepo (https://www.svgrepo.com/)
+        logoipsum (https://logoipsum.com/)
+    Profile Pictures:
+        randomuser.me (https://randomuser.me/)
 
 Design inspired by Awsmd (https://dribbble.com/shots/22674677-Growth-Hacking-Company-Website)
